@@ -20,5 +20,6 @@
   <tr>
     <th><%= f.label(:password) %></th>
     <td><%= f.password_field(:password) %></td>
+    <% f.password_field(:password_confirmation => :password) %>
   </tr>
 </table>
