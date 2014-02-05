@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string "last_name", :limit => 50
       t.string "email", :default => "", :null => false
       t.string "password", :limit => 40
+      t.string "role", :default => "user"
 
       # t.datetime "created_at"
       # t.datetime "updated_at"
