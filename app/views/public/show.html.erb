@@ -7,6 +7,7 @@
     <% case section.content_type %>
     <% when 'HTML' %>
       <%= raw(sanitize(section.content, :tags => ['strong', 'em', 'a'])) %>
+      <%= video_path(section.content) %>
     <% when 'text' %>
       <p><%= section.content %></p>
     <% end %>
