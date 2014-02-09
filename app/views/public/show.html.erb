@@ -1,4 +1,9 @@
 <% @page_title = @page.name %>
+<%if session[:user_id] == nil%>
+<%= link_to("<< login", {:controller =>'access', :action => 'login'}, :class => 'back-link') %>
+<%else%>
+<%= link_to("<< logout", {:action => 'index'}, :class => 'back-link') %>
+<%end%>
 
 <h2><%= @page.name %></h2>
 
@@ -6,8 +11,8 @@
   <div class="section">
     <% case section.content_type %>
     <% when 'HTML' %>
-      <%= raw(sanitize(section.content, :tags => ['strong', 'em', 'a'])) %>
-      <%= video_path(section.content) %>
+      <%= raw(sanitize(section.content, :tags => ['strong', 'em', 'a', 'iframe'])) %>
+      
     <% when 'text' %>
       <p><%= section.content %></p>
     <% end %>

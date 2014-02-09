@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def roles
+    if session[:role] == "admin"
+      redirect_to(:controller => 'admin', :action => 'index')
+      else
+      redirect_to(:controller => 'public', :action => 'index')
+     end
+  end
 end

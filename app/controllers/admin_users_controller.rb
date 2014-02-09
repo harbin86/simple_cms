@@ -3,6 +3,7 @@ class AdminUsersController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
+  
 
   def index
     @admin_users = AdminUser.sorted

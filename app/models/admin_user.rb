@@ -29,7 +29,7 @@ class AdminUser < ActiveRecord::Base
                          :length => { :maximum => 25 }
   validates :last_name, :presence => true,
                         :length => { :maximum => 50 }
-  validates :username, :length => { :within => 8..25 },
+  validates :username, :length => { :within => 3..25 },
                        :uniqueness => true
   validates :email, :presence => true,
                     :length => { :maximum => 100 },

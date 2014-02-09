@@ -1,6 +1,6 @@
-<%= error_messages_for(@admin_user) %>
+<%= error_messages_for(@view_user) %>
 
-<table summary="Admin user form fields">
+<table summary="User form fields">
   <tr>
     <th><%= f.label(:first_name) %></th>
     <td><%= f.text_field(:first_name) %></td>
@@ -20,6 +20,6 @@
   <tr>
     <th><%= f.label(:password) %></th>
     <td><%= f.password_field(:password) %></td>
-    <% f.password_field(:password_confirmation => :password) %>
+    <td><%= f.password_field(:password_confirmation) %></td>
   </tr>
 </table>

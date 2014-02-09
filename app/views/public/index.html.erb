@@ -1,3 +1,6 @@
-<h2>Welcome to the Simple CMS</h2>
-
+<%if session[:user_id] == nil%>
+<%= link_to("<< login", {:controller =>'access', :action => 'login'}, :class => 'back-link') %>
+<%else%>
+<%= link_to("<< logout", {:action => 'index'}, :class => 'back-link') %>
+<%end%>
 <p>This is my first Ruby on Rails application!</p>

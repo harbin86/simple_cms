@@ -2,6 +2,7 @@ class PublicController < ApplicationController
 
   layout 'public'
 
+  before_action :confirm_logged_in, :except => [:index]
   before_action :setup_navigation
 
   def index

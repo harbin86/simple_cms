@@ -3,7 +3,8 @@ class AccessController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
-
+  before_action :roles, :except => [:login, :attempt_login, :logout]
+  
   def index
     # display text & links
   end
@@ -23,8 +24,12 @@ class AccessController < ApplicationController
       # mark user as logged in
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
+      if session[:role] == "admin"
       flash[:notice] = "You are now logged in."
       redirect_to(:action => 'index')
+      else
+      redirect_to(:controller => 'public', :action => 'index')
+     end
     else
       flash[:notice] = "Invalid username/password combination."
       redirect_to(:action => 'login')
